@@ -1,6 +1,7 @@
 package org.example;
 
 public class AppConstants {
+    private AppConstants(){}
     public static final String URL_HTTP_CAT="https://http.cat";
     public static final String DOWNLOADS_PATH="src/main/resources/downloads";
     public static final String EXIT_WORD="quit";

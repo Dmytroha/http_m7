@@ -13,6 +13,9 @@ import org.slf4j.LoggerFactory;
 import static org.example.AppConstants.URL_HTTP_CAT;
 
 public class HttpStatusChecker {
+
+
+    private HttpStatusChecker(){}
     private static final Logger LOGGER = LoggerFactory.getLogger(HttpStatusChecker.class);
     private static final HttpClient CLIENT = HttpClient.newHttpClient();
 
