@@ -17,7 +17,7 @@ public class HttpStatusChecker {
 
     private HttpStatusChecker(){}
     private static final Logger LOGGER = LoggerFactory.getLogger(HttpStatusChecker.class);
-    private static final HttpClient CLIENT = HttpClient.newHttpClient();
+    private static final HttpClient HTTP_CLIENT = HttpClient.newHttpClient();
 
     public static String getStatusImage(int code) throws InterruptedException, IOException {
         URI linkToImage = URI.create(String.format(URL_HTTP_CAT+"/%s.jpg", code));
@@ -37,7 +37,7 @@ public class HttpStatusChecker {
     }
 
     private static int getStatusCode(HttpRequest httpRequest) throws InterruptedException, IOException {
-        HttpResponse<String> httpResponse = CLIENT.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> httpResponse = HTTP_CLIENT.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         return httpResponse.statusCode();
     }
 
