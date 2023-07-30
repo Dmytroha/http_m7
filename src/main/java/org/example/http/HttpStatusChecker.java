@@ -20,6 +20,7 @@ public class HttpStatusChecker {
     private static final HttpClient HTTP_CLIENT = HttpClient.newHttpClient();
 
     public static String getStatusImage(int code) throws InterruptedException, IOException {
+        LOGGER.info("Validate code.");
         URI linkToImage = URI.create(String.format(URL_HTTP_CAT+"/%s.jpg", code));
         try {
             HttpRequest httpRequest = HttpRequest.newBuilder()
@@ -29,7 +30,7 @@ public class HttpStatusChecker {
             LOGGER.info("Request status code: -> {}", getStatusCode(httpRequest));
             if (getStatusCode(httpRequest) == 404) {
                 throw new InputMismatchException("Unknown status code provided! Need valid status code!");
-            }
+            }else{LOGGER.info("You enter valid code.");}
         } catch (IOException e) {
             throw new IOException(e.getMessage());
         }
